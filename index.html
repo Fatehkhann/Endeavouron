@@ -277,52 +277,6 @@
         	</div>
         </section>
 
-        <section>
-            <!-- Load Stripe.js on your website. -->
-<script src="https://js.stripe.com/v3"></script>
-
-<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-<button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-  id="checkout-button-price_1GxadUAkRJXkUDFJrPEih2k6"
-  role="link"
->
-  Checkout
-</button>
-
-<div id="error-message"></div>
-
-<script>
-(function() {
-  var stripe = Stripe('pk_test_IdZByJKO1akHN674VCZ6vBqt');
-
-  var checkoutButton = document.getElementById('checkout-button-price_1GxadUAkRJXkUDFJrPEih2k6');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1GxadUAkRJXkUDFJrPEih2k6', quantity: 1}],
-      mode: 'payment',
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
-      successUrl: 'http://cloudshop.us/success',
-      cancelUrl: 'http://cloudshop.us/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-})();
-</script>
-        </section>
 
 		<section id="single-quote" class="divider-section">
 	            <div class="container">
@@ -351,7 +305,7 @@
 	                <div class="gap"></div>
 	      		</div>
   		</section>
-<!-- 
+
         <section id="about-us" class="white">
         	<div class="container">
 	            <div class="gap"></div>
@@ -779,144 +733,6 @@
                     </div>
                 </div>
        		</section>
-
-            <!-- <section id="pricing" class="white">
-                <div class="container">
-                    <div class="center gap fade-down section-heading">
-                        <h2 class="main-title">So, How Much?</h2>
-                        <hr>
-                        <p>Of an or game gate west face shed. ﻿no great but music too old found arose.</p>
-                    </div>
-                    <div class="gap"></div>
-                    <div id="pricing-table" class="row">
-                        <div class="col-md-3 col-xs-6 flip-in">
-                            <ul class="plan plan1">
-                                <li class="plan-name">
-                                    <h3>Basic</h3>
-                                </li>
-                                <li class="plan-price">
-                                    <div>
-                                        <span class="price"><sup>$</sup>10</span>
-                                        <small>month</small>
-                                    </div>
-                                </li>
-                                <li>
-                                    <strong>5GB</strong> Storage
-                                </li>
-                                <li>
-                                    <strong>1GB</strong> RAM
-                                </li>
-                                <li>
-                                    <strong>400GB</strong> Bandwidth
-                                </li>
-                                <li>
-                                    <strong>10</strong> Email Address
-                                </li>
-                                <li>
-                                    <strong>Forum</strong> Support
-                                </li>
-                                <li class="plan-action">
-                                    <a href="#" class="btn btn-outlined btn-primary btn-md btn-white">Signup</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-xs-6 flip-in">
-                            <ul class="plan plan2 featured">
-                                <li class="plan-name">
-                                    <h3>Standard</h3>
-                                </li>
-                                <li class="plan-price">
-                                    <div>
-                                        <span class="price"><sup>$</sup>20</span>
-                                        <small>month</small>
-                                    </div>
-                                </li>
-                                <li>
-                                    <strong>5GB</strong> Storage
-                                </li>
-                                <li>
-                                    <strong>1GB</strong> RAM
-                                </li>
-                                <li>
-                                    <strong>400GB</strong> Bandwidth
-                                </li>
-                                <li>
-                                    <strong>10</strong> Email Address
-                                </li>
-                                <li>
-                                    <strong>Forum</strong> Support
-                                </li>
-                                <li class="plan-action">
-                                    <a href="#" class="btn btn-outlined btn-primary btn-md">Signup</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-xs-6 flip-in">
-                            <ul class="plan plan3">
-                                <li class="plan-name">
-                                    <h3>Advanced</h3>
-                                </li>
-                                <li class="plan-price">
-                                    <div>
-                                        <span class="price"><sup>$</sup>40</span>
-                                        <small>month</small>
-                                    </div>
-                                </li>
-                                <li>
-                                    <strong>50GB</strong> Storage
-                                </li>
-                                <li>
-                                    <strong>8GB</strong> RAM
-                                </li>
-                                <li>
-                                    <strong>1024GB</strong> Bandwidth
-                                </li>
-                                <li>
-                                    <strong>Unlimited</strong> Email Address
-                                </li>
-                                <li>
-                                    <strong>Forum</strong> Support
-                                </li>
-                                <li class="plan-action">
-                                    <a href="#" class="btn btn-outlined btn-primary btn-md btn-white">Signup</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-xs-6 flip-in">
-                            <ul class="plan plan4">
-                                <li class="plan-name">
-                                    <h3>Mighty</h3>
-                                </li>
-                                <li class="plan-price">
-                                    <div>
-                                        <span class="price"><sup>$</sup>100</span>
-                                        <small>month</small>
-                                    </div>
-                                </li>
-                                <li>
-                                    <strong>50GB</strong> Storage
-                                </li>
-                                <li>
-                                    <strong>8GB</strong> RAM
-                                </li>
-                                <li>
-                                    <strong>1024GB</strong> Bandwidth
-                                </li>
-                                <li>
-                                    <strong>Unlimited</strong> Email Address
-                                </li>
-                                <li>
-                                    <strong>Forum</strong> Support
-                                </li>
-                                <li class="plan-action">
-                                    <a href="#" class="btn btn-outlined btn-primary btn-md btn-white">Signup</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="gap"></div>
-                </div>
-            </section> -->
 
 			<div id="mapwrapper">
 				<div id="map"></div>
